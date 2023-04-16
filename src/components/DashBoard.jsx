@@ -12,22 +12,22 @@ const DashBoard = () => {
 
             <div className="cuerpo">
                 <form>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between" style={{gap: '10px'}}>
 
-                        <div>
+                        <div className='w-50'>
                             <label>Clave</label>
                             <input type="text" />
                         </div>
 
-                        <div className="w-25">
+                        <div className="w-50">
                             <label>Nombre</label>
                             <input type="text" />
                         </div>
 
                     </div>
 
-                    <div className="d-flex justify-content-between mt-4">
-
+                    <div className="d-none d-md-flex justify-content-between mt-4">
+                        
                         <div>
                             <label>Clase de Vehículo</label>
                             <select name="" id="">
@@ -48,8 +48,48 @@ const DashBoard = () => {
                         <div>
                             <label>Marca</label>
                             <select name="" id="">
-                                <option>VOLKSWAGEN</option>
                                 <option>TOYOTA</option>
+                                <option>VOLKSWAGEN</option>
+                                <option>RENAULT</option>
+                                <option>NISSAN</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label>Version</label>
+                            <input type="text" />
+                        </div>
+
+                    </div>
+
+                    <div className="d-flex d-md-none justify-content-between mt-4">
+                        
+                        <div>
+                            <label>Clase de Vehículo</label>
+                            <select name="" id="">
+                                <option>Deportivo</option>
+                                <option>Clásico</option>
+                                <option>Todo Terreno</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label>Tipo de Vehículo</label>
+                            <select name="" id="">
+                                <option>Nuevo</option>
+                                <option>SemiNuevo</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div className="d-flex d-md-none justify-content-between mt-4" style={{gap: '10px'}}>
+
+                        <div>
+                            <label>Marca</label>
+                            <select name="" id="">
+                                <option>TOYOTA</option>
+                                <option>VOLKSWAGEN</option>
                                 <option>RENAULT</option>
                                 <option>NISSAN</option>
                             </select>
@@ -79,7 +119,7 @@ const DashBoard = () => {
                         </div>
                     </div>
 
-                    <div className="mt-4 w-25">
+                    <div className="imagenes mt-4">
                         <label>Imagen</label>
                         <img src={carro} className='img-fluid' />
 
