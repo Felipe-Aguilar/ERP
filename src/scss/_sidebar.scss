@@ -38,7 +38,7 @@
         .buttons{
             margin-top: 20px;
 
-            button{
+            button, a{
                 width: 100%;
                 padding: 10px 20px;
                 border: none;
@@ -48,6 +48,11 @@
                 margin-bottom: 5px;
                 background: transparent;
                 font-size: 16px;
+                color: #181616;
+                text-decoration: none;
+            }
+            button, a:focus{
+                background: #EBEEF0;
             }
             .activate{
                 background: #EBEEF0;

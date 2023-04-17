@@ -1,10 +1,30 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+
+import { Variables } from '../context/Variables';
 
 import AngelLogo from '../assets/autos-el-angel-logo.png';
 
 const SideBar = () => {
 
     const [menu, setMenu] = useState(false);
+    const [buscado, setBuscado] = useState(false);
+
+    const { setSeleccionado } = useContext(Variables);
+
+    const seleccion = (e) => {
+        const selec = e.target.innerText;
+        setBuscado(true);
+        setSeleccionado(selec);
+        setMenu(false);
+    }
+
+    const home = (e) => {
+        const selec = e.target.innerText;
+        setBuscado(false);
+        setSeleccionado(selec);
+        setMenu(false);
+    }
 
     return ( 
         <>
@@ -21,26 +41,41 @@ const SideBar = () => {
                     <p>Menú Principal</p>
 
                     <div className='buttons'>
-                        <button className='activate'>
+
+                        <NavLink className={!buscado &&'activate'} to={'/'}
+                            onClick={home}
+                        >
                             <i className="bi bi-grid-1x2"></i>
                             DashBoard
-                        </button>
-                        <button>
+                        </NavLink>
+
+                        <NavLink to={'/ordenes'}
+                            onClick={seleccion}
+                        >
                             <i className="bi bi-cart3"></i>
                             Órdenes
-                        </button>
-                        <button>
+                        </NavLink>
+
+                        <NavLink to={'/productos'}
+                            onClick={seleccion}
+                        >
                             <i className="bi bi-car-front"></i>
                             Productos
-                        </button>
-                        <button>
+                        </NavLink>
+
+                        <NavLink to={'/ventas'}
+                            onClick={seleccion}
+                        >
                             <i className="bi bi-graph-up"></i>
                             Ventas
-                        </button>
-                        <button>
+                        </NavLink>
+
+                        <NavLink to={'/otro'}
+                            onClick={seleccion}
+                        >
                             <i className="bi bi-rainbow"></i>
                             Otro
-                        </button>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -87,26 +122,28 @@ const SideBar = () => {
                         <p>Menú Principal</p>
 
                         <div className='buttons'>
-                            <button className='activate'>
+                            <NavLink to={'/'} className={!buscado &&'activate'}
+                                onClick={home}
+                            >
                                 <i className="bi bi-grid-1x2"></i>
                                 DashBoard
-                            </button>
-                            <button>
+                            </NavLink>
+                            <NavLink to={'/ordenes'} onClick={seleccion}>
                                 <i className="bi bi-cart3"></i>
                                 Órdenes
-                            </button>
-                            <button>
+                            </NavLink>
+                            <NavLink to={'/productos'} onClick={seleccion}>
                                 <i className="bi bi-car-front"></i>
                                 Productos
-                            </button>
-                            <button>
+                            </NavLink>
+                            <NavLink to={'/ventas'} onClick={seleccion}>
                                 <i className="bi bi-graph-up"></i>
                                 Ventas
-                            </button>
-                            <button>
+                            </NavLink>
+                            <NavLink to={'/otro'} onClick={seleccion}>
                                 <i className="bi bi-rainbow"></i>
                                 Otro
-                            </button>
+                            </NavLink>
                         </div>
                     </div>
 

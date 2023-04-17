@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import { Variables } from "../context/Variables";
+
 const BarraSuperior = () => {
+
+    const { seleccionado } = useContext(Variables);
+
     return ( 
         <div className="barra-superior d-flex justify-content-between">
             <div>
                 <p>
                     Inicio 
                     <i className="bi bi-chevron-right"></i>
-                    Productos
+                    { seleccionado }
                 </p>
             </div>
 
